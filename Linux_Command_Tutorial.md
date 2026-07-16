@@ -185,11 +185,11 @@ Kết quả sẽ hiển thị tất cả file (bao gồm `.git`, `.env`, `node_m
 
 ### 6. Những lỗi thường gặp
 
-| Lỗi                                                  | Nguyên nhân                    | Cách sửa                        |
-| ---------------------------------------------------- | ------------------------------ | ------------------------------- | --------------- | ------ |
-| `ls: cannot access 'xxx': No such file or directory` | Đường dẫn không tồn tại.       | Kiểm tra chính tả và đường dẫn. |
-| Không thấy file dù biết là có                        | File bị ẩn (bắt đầu bằng `.`). | Dùng `ls -a`.                   |
-| Hiển thị quá nhiều, không thấy hết                   | Thư mục có nhiều file.         | Dùng `ls                        | less`hoặc`ls -l | head`. |
+| Lỗi                                                  | Nguyên nhân                    | Cách sửa                                         |
+| ---------------------------------------------------- | ------------------------------ | -------------------------------------------------|
+| `ls: cannot access 'xxx': No such file or directory` | Đường dẫn không tồn tại.       | Kiểm tra chính tả và đường dẫn.                  |
+| Không thấy file dù biết là có                        | File bị ẩn (bắt đầu bằng `.`). | Dùng `ls -a`.                                    |
+| Hiển thị quá nhiều, không thấy hết                   | Thư mục có nhiều file.         | Dùng `ls \| less`, `less`, hoặc `ls -l \| head`. |
 
 ---
 
@@ -1356,7 +1356,7 @@ grep [options] pattern [tên_file]
 ### 3. Các Option thường dùng
 
 | Option      | Ý nghĩa                                    | Ví dụ                       |
-| ----------- | ------------------------------------------ | --------------------------- | ----------------- |
+| ----------- | ------------------------------------------ | --------------------------- |
 | `-i`        | Không phân biệt chữ hoa/thường.            | `grep -i error log.txt`     |
 | `-r` / `-R` | Tìm kiếm đệ quy trong thư mục.             | `grep -r "TODO" ./src`      |
 | `-l`        | Chỉ in tên file có kết quả.                | `grep -l "pattern" *.txt`   |
@@ -1364,7 +1364,7 @@ grep [options] pattern [tên_file]
 | `-v`        | In dòng **không** khớp.                    | `grep -v "debug" log.txt`   |
 | `-c`        | Đếm số dòng khớp.                          | `grep -c "user" access.log` |
 | `-w`        | Khớp toàn bộ từ, không phải một phần.      | `grep -w "host" file.txt`   |
-| `-E`        | Sử dụng biểu thức chính quy mở rộng (ERE). | `grep -E "error             | warning" log.txt` |
+| `-E`        | Sử dụng biểu thức chính quy mở rộng (ERE). | `grep -E "error \| warning" log.txt` |
 
 ---
 
@@ -1431,10 +1431,10 @@ grep -rn "deprecated" ./src --include="*.js"
 ### 6. Những lỗi thường gặp
 
 | Lỗi                                         | Nguyên nhân         | Cách sửa              |
-| ------------------------------------------- | ------------------- | --------------------- | ------ |
+| ------------------------------------------- | ------------------- | --------------------- |
 | `grep: pattern not found`                   | Không có kết quả.   | Kiểm tra pattern.     |
 | `grep: filename: No such file or directory` | File không tồn tại. | Kiểm tra đường dẫn.   |
-| Kết quả quá nhiều                           | Thiếu filter.       | Thêm `-w` hoặc dùng ` | head`. |
+| Kết quả quá nhiều                           | Thiếu filter.       | Thêm `-w` hoặc dùng ` \| head`. |
 
 ---
 
